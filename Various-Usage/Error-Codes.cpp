@@ -97,7 +97,7 @@ auto check_general_no_exit(vector<int> v)
    auto after = high_resolution_clock::now();
    clog << accumulate(begin(v), end(v), 0);
    return make_pair(after - before, i);
-}}
+}
 
 int main()
 {
