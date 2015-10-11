@@ -13,8 +13,8 @@ PROGRAMS:=$(foreach source,$(SOURCE_FILES),$(foreach compiler,$(COMPILERS), \
   ))
 $(foreach source,$(SOURCE_FILES),$(foreach compiler,$(COMPILERS), $(eval \
     $(OUTPUT_DIR)/$(compiler)/$(source).exe : $(source) compiler/$(compiler) ; \
-      mkdir -p $(dir $(OUTPUT_DIR)/$(compiler)/$(source).exe) && \
-      'compiler/$(compiler)' '$(source)' '$(OUTPUT_DIR)/$(compiler)/$(source).exe' \
+      mkdir -p '$$(@D)' && \
+      'compiler/$(compiler)' '$$<' '$$@' \
   )))
 
 RESULTS:=$(patsubst %.exe,%.txt,$(PROGRAMS))
