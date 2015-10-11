@@ -9,7 +9,7 @@ eval $(echo "\"$VS140COMNTOOLS/VsDevCmd.bat\"
 set" | cmd | sed -nr 's/^(PATH|INCLUDE|LIB|LIBPATH)=(.*$)/export \1='\''\2'\''/p')
 export PATH=$(/bin/cygpath -p "$PATH")
 source="$1"
-program="$2"
+assembly="$2"
 shift
 shift
-cl.exe /EHsc /O2 "$@" /Fo"$program".obj /Fe"$program" "$source"
+cl.exe /EHsc /O2 "$@" /c /Fo"$assembly".obj /FA /Fa"$assembly" "$source"
