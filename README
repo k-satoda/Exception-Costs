@@ -1,0 +1,18 @@
+This is a set of source code and some scripts meant to examine costs of
+C++ exception handling. The code was derived from the work made by
+Patrice Roy (retrieved at 2015/10/11).
+http://h-deb.clg.qc.ca/Sujets/Developpement/Exceptions-Costs.html
+
+The initial intent was to make the tests repeatable on my machine. After
+that, I made the tree sharable hoping that more participants can verify
+the tests on more environments.
+
+Requires:
+  Cygwin <https://cygwin.com/>
+    - make
+    - g++
+  Microsoft Visual C++ 2015 <https://www.visualstudio.com/products/visual-studio-community-vs.aspx>
+
+Usage:
+  Run "make" from the top of the tree.
+

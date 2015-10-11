@@ -1,0 +1,15 @@
+#!/bin/bash
+set -e -u -o pipefail
+if [ -z "$VS140COMNTOOLS" ]; then
+  echo "Can't locate VS140COMNTOOLS" >&2
+  exit 1
+fi
+eval $(echo "\"$VS140COMNTOOLS/VsDevCmd.bat\"
+\"%VCINSTALLDIR%vcvarsall.bat\" amd64
+set" | cmd | sed -nr 's/^(PATH|INCLUDE|LIB|LIBPATH)=(.*$)/export \1='\''\2'\''/p')
+export PATH=$(/bin/cygpath -p "$PATH")
+source="$1"
+program="$2"
+shift
+shift
+cl.exe /EHsc /O2 "$@" /Fo"$program".obj /Fe"$program" "$source"
