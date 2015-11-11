@@ -1,3 +1,4 @@
+#if defined(__EXCEPTIONS)
 class invalid_data {};
 
 int process_or_throw(int n)
@@ -18,3 +19,4 @@ void check_general_no_exit(int v[], int n)
    {
    }
 }
+#endif

@@ -2,7 +2,7 @@
 .PHONY : default
 default :
 
-COMPILERS:=gcc-O3 msvc2015-amd64-O2
+COMPILERS:=gcc-O3 gcc-O2 gcc-O2-fno-exceptions msvc2015-amd64-O2
 SOURCE_DIRS:=Various-Usage
 OUTPUT_DIR:=generated
 

@@ -1,0 +1,7 @@
+#!/bin/sh
+set -e -u
+source="$1"
+assembly="$2"
+shift
+shift
+g++ -std=c++14 -O2 -fno-exceptions -S -o "$assembly" "$source"
